@@ -18,7 +18,7 @@ This is a **prove you understand OOP** assignment.
 
 ---
 
-# 🎯 Objective
+# Objective
 
 Design a small banking system that demonstrates:
 
@@ -31,7 +31,7 @@ If you cannot explain where each principle appears in your code, you did not com
 
 ---
 
-# 📁 Required Files
+# Required Files
 
 You must create:
 
