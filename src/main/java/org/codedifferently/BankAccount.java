@@ -32,8 +32,12 @@ public abstract class BankAccount {
         return balance;
     }
 
-    public abstract void depositFunds();
-    public abstract void withdrawFunds();
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public abstract void depositFunds(double money);
+    public abstract void withdrawFunds(double money);
     public abstract void getMonthlyUpdate();
     public abstract void printSummary();
 }
