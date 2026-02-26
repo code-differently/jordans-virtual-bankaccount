@@ -22,7 +22,7 @@ public class CheckingAccount extends BankAccount {
         }
 
         //add prints
-        System.out.println("Checking (" + accountNumber + ") - Balance: $" + balance);
+        printPreviousSummary();
         previousBalance = balance;
 
     }

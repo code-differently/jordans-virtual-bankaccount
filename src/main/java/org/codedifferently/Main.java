@@ -7,11 +7,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
       BankAccount checking = new CheckingAccount("Jordon", 002, 0);
-   //   BankAccount savings = new SavingsAccount("Jordon", 003, 0, 1);
+      BankAccount savings = new SavingsAccount("Jordon", 003, 0, 1);
    //   BankAccount credit = new CreditAccount("Jordon", 003, 0, 4, 1000);
       ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
       accounts.add(checking);
+      accounts.add(savings);
    //   accounts.add(savings);
   //    accounts.add(credit);
 
@@ -42,6 +43,18 @@ public class Main {
       checking.monthlyUpdate();
       checking.deposit(13);
       checking.monthlyUpdate();
+
+      savings.monthlyUpdate();
+      savings.deposit(10000);
+      savings.monthlyUpdate();
+      savings.deposit(10000);
+      savings.withdrawal(1000);
+      savings.monthlyUpdate();
+      savings.monthlyUpdate();
+
+
+
+
       //  savings.monthlyUpdate();
     //  checking.deposit(5);
     //  checking.monthlyUpdate();
