@@ -31,4 +31,26 @@ public abstract class BankAccount {
             balance += amount;
         }
     }
+
+    // Each account type must implement these
+    public abstract void withdraw(double amount);
+    public abstract void monthlyUpdate();
+    public abstract void printSummary();
+
+    // Protected so subclasses can use safely
+    protected double getBalance() {
+        return balance;
+    }
+
+    protected void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    protected String getAccountNumber() {
+        return accountNumber;
+    }
+
+    protected String getOwner() {
+        return owner;
+    }
 }
