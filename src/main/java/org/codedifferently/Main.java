@@ -7,48 +7,50 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
       BankAccount checking = new CheckingAccount("Jordon", 002, 0);
-      BankAccount savings = new SavingsAccount("Jordon", 003, 0, 1);
-      BankAccount credit = new CreditAccount("Jordon", 003, 0, 4, 1000);
+   //   BankAccount savings = new SavingsAccount("Jordon", 003, 0, 1);
+   //   BankAccount credit = new CreditAccount("Jordon", 003, 0, 4, 1000);
       ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
       accounts.add(checking);
-      accounts.add(savings);
-      accounts.add(credit);
+   //   accounts.add(savings);
+  //    accounts.add(credit);
 
-     // checking.monthlyUpdate();
+      checking.monthlyUpdate();
      // savings.monthlyUpdate();
-      credit.monthlyUpdate();
+   //   credit.monthlyUpdate();
 
-     // checking.deposit(10000);
+      checking.deposit(10000);
      // savings.deposit(10000);
-      credit.withdrawal(500);
+  //    credit.withdrawal(500);
 
-     // checking.monthlyUpdate();
+      checking.monthlyUpdate();
     //  savings.monthlyUpdate();
-      credit.monthlyUpdate();
+   //   credit.monthlyUpdate();
 
-    //  checking.deposit(10000);
+      checking.deposit(10000);
     //  savings.deposit(10000);
     //  checking.withdrawal(1000);
     //  savings.withdrawal(1000);
-      credit.deposit(400);
+    //  credit.deposit(400);
 
-    //  checking.monthlyUpdate();
+      checking.monthlyUpdate();
     //  savings.monthlyUpdate();
-      credit.monthlyUpdate();
+   //   credit.monthlyUpdate();
 
-     // checking.withdrawal(21000);
-     // checking.withdrawal(18999);
-     // checking.monthlyUpdate();
-    //  savings.monthlyUpdate();
+      checking.withdrawal(21000);
+      checking.withdrawal(19999);
+      checking.monthlyUpdate();
+      checking.deposit(13);
+      checking.monthlyUpdate();
+      //  savings.monthlyUpdate();
     //  checking.deposit(5);
     //  checking.monthlyUpdate();
     //  savings.monthlyUpdate();
 
-      credit.monthlyUpdate();
+  //    credit.monthlyUpdate();
 
-      credit.deposit(5);
-      credit.monthlyUpdate();
+  //    credit.deposit(5);
+   //   credit.monthlyUpdate();
 
     }
 }
