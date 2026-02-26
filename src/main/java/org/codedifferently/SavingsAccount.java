@@ -1,8 +1,8 @@
 package org.codedifferently;
 
 public class SavingsAccount extends BankAccount {
-    public SavingsAccount(double balance, String owner) {
-        super(balance, owner);
+    public SavingsAccount(double balance, String id, String owner) {
+        super(balance, id ,owner);
     }
 
     @Override
@@ -14,18 +14,26 @@ public class SavingsAccount extends BankAccount {
     @Override
     public void withdraws(double withdraws) {
 
+        if(withdraws > getBalance()){
+            System.out.println("Action Cannot Be Completed, More than balance");
+        }
+        else{
+            setBalance(getBalance()-withdraws);
+        }
 
     }
 
     @Override
-    public void monthlyFee(double withdraws) {
+    public void monthlyFee() {
 
+        double interest = getBalance() * .15;
+        setBalance(getBalance() + interest);
 
     }
 
     @Override
     public void bankSummary() {
-        System.out.println("Saving " + getAccountNumber() + "- Balance " + getBalance());
+        System.out.println("Saving (" + getId() + ") - Balance " + getBalance() + " - Owner " + getOwner());
     }
 }
 

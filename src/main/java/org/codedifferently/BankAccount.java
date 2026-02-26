@@ -1,17 +1,17 @@
 package org.codedifferently;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class BankAccount {
 
-    private String owner;
+    private final String owner;
 
-    private static final AtomicInteger accountNumber = new AtomicInteger(1);
+    private final String id;
 
     private double balance;
 
-    public BankAccount(double balance, String owner) {
+    public BankAccount(double balance, String id, String owner) {
         this.balance = balance;
+        this.id = id;
         this.owner = owner;
     }
 
@@ -19,8 +19,8 @@ public abstract class BankAccount {
         return owner;
     }
 
-    public AtomicInteger getAccountNumber() {
-        return accountNumber;
+    public String getId() {
+        return id;
     }
 
     public double getBalance() {
@@ -35,7 +35,7 @@ public abstract class BankAccount {
 
     public abstract void withdraws(double withdraws);
 
-    public abstract void monthlyFee(double withdraws);
+    public abstract void monthlyFee();
 
     public abstract void bankSummary();
 
