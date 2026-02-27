@@ -15,7 +15,7 @@ public class SpendingAccount extends BankAccount {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw(double amount)  {
 
         if (amount > getBalance()) {
             System.out.println("Spending: Not enough funds.");
