@@ -2,7 +2,7 @@ package jamesbarclay;
 
 // Savings account earns interest
 
-public class SavingAccount extends BankAccount {
+public class SavingAccount extends BankAccount  {
 
     public SavingAccount(String owner, String accountNumber, double balance) {
         super(owner, accountNumber, balance);

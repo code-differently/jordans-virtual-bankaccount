@@ -8,7 +8,7 @@ public class SpendingAccount extends BankAccount {
     private double spentThisMonth;
 
     public SpendingAccount(String owner, String accountNumber,
-                           double balance, double monthlyLimit) {
+                           double balance, double monthlyLimit)  {
         super(owner, accountNumber, balance);
         this.monthlyLimit = monthlyLimit;
         this.spentThisMonth = 0;
