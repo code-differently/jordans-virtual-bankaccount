@@ -6,12 +6,10 @@ public class CheckingAccount extends BankAccount {
         super(owner, balance);
     }
 
-    @Override
     public void depositFunds(double money) {
         this.setBalance(this.getBalance() + money);
     }
 
-    @Override
     public void withdrawFunds(double money) {
         double currentBalance = this.getBalance();
         if (currentBalance >= money) {
@@ -23,7 +21,7 @@ public class CheckingAccount extends BankAccount {
 
     // Applies a fee of $12 if current balance is less than $12
     @Override
-    public void getMonthlyUpdate() {
+    public void performMonthlyUpdate() {
         double currentBalance = this.getBalance();
         if (this.getBalance() < 1500) {
              this.setBalance(currentBalance - 12);
@@ -32,6 +30,6 @@ public class CheckingAccount extends BankAccount {
 
     @Override
     public void printSummary() {
-
+        System.out.println("Checking (" + this.getAccountNum() + ") - Balance: $" + String.format("%.2f", this.getBalance()));
     }
 }

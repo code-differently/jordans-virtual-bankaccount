@@ -3,41 +3,35 @@ import java.util.Random;
 
 public abstract class BankAccount {
     private String owner;
-    private String accountNum;
+    private int accountNum;
     private double balance;
 
     public BankAccount(String owner, double balance) {
         this.owner = owner;
-        this.accountNum = generateAccountNum(owner);
+        this.accountNum = generateAccountNum();
         this.balance = balance;
     }
 
-    public String generateAccountNum(String owner) {
-        if (owner.length() <= 3) {
-            return owner.toUpperCase() + "-" + new Random().nextInt(1000, 999999);
-        } else {
-            return owner.substring(0, 3).toUpperCase() + "-" + new Random().nextInt(1000, 999999);
-        }
+    public int generateAccountNum() {
+        return new Random().nextInt(10000000, 99999999);
     }
 
     public String getOwner() {
-        return owner;
+        return this.owner;
     }
 
-    public String getAccountNum() {
-        return accountNum;
+    public int getAccountNum() {
+        return this.accountNum;
     }
 
     public double getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public abstract void depositFunds(double money);
-    public abstract void withdrawFunds(double money);
-    public abstract void getMonthlyUpdate();
+    public abstract void performMonthlyUpdate();
     public abstract void printSummary();
 }
