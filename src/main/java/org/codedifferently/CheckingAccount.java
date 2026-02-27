@@ -19,8 +19,10 @@ public class CheckingAccount extends BankAccount {
     public double withdrawal(double amount){
         //if amount was greater what's result
         if(amount > super.getBalance()){
+            System.out.println("Transaction denied. Insufficient funds.");
             return 0.0;
         }
+        setBalance(super.getBalance()-amount);
         return amount;
     }
 
