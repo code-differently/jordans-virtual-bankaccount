@@ -7,7 +7,7 @@ abstract Class BankAccount{
 +BankAccount(ownerName:String, accountNumber:int, balance:double)
 
 +getOwnerName():String
-+getAccountNumber():String
++getAccountNumber():int
 +getBalance():double
 
 {abstract}+deposit(amount:double):void
