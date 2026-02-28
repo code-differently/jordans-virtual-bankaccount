@@ -28,13 +28,11 @@ public HighYieldSavings(String owner, int accountNumber, double accountBalance, 
 public void monthlyUpdate(){
     double monthlyInterest = getBalance() * (interestRate/12);
 //Bonus Interest condition
-    if(){
-
+    if((getBalance() >= minimumBalance) && (withdrawalsThisMonth <= withdrawalLimits)){
+adjustBalance(bonusInterest);
     }
-
-
+    withdrawalsThisMonth = 0;
 }
-
 
 
 
