@@ -1,0 +1,38 @@
+@startuml
+abstract Class BankAccount{
+- ownerName: String
+- accountNumber: int
+- balance: double
+
++BankAccount(ownerName:String, accountNumber:int, balance:double)
+
++getOwnerName():String
++getAccountNumber():int
++getBalance():double
+
+{abstract}+deposit(amount:double):void
+{abstract}+withdrawal(amount:double):double
++monthlyUpdate():void
++displaySummary():void
+}
+
+Class checkingAccount{
++deposit(amount:double):void
++withdrawal(amount:double):double
+}
+
+Class savingAccount{
++deposit(amount:double):void
++withdrawal(amount:double):double
+}
+
+Class thirdAccount{
++deposit(amount:double):void
++withdrawal(amount:double):double
+}
+
+checkingAccount --|> BankAccount
+savingAccount --|> BankAccount
+thirdAccount --|> BankAccount
+
+@enduml
