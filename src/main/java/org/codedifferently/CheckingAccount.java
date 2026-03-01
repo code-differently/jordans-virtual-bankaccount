@@ -32,8 +32,8 @@ super(owner, accountNumber, balance);
     @Override
     public void makeWithdrawal(double amount) {
 if(amount > getBalance()){
-    System.out.println("Are you serious? You don't have enough funds to withdrawal that amount Jordan. " +
-            "You only have: " + getBalance());
+    System.out.printf("Are you serious? You don't have enough funds to withdrawal that amount Jordan. " +
+            "You only have: %.2f",  getBalance());
 }
 else{adjustBalance(-amount);}
 

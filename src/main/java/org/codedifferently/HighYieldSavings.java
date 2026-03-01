@@ -25,30 +25,46 @@ public HighYieldSavings(String owner, int accountNumber, double accountBalance, 
             return;
         }
 
-        if (getBalance() >= amount) {
+        double newBalance = getBalance() - amount;
 
-            adjustBalance(-amount);
-            targetAccount.adjustBalance(amount);
-
-            System.out.println(
-                    "Transferred $" + amount +
-                            " to account #" +
-                            targetAccount.getAccountNumber()
-            );
-
-        } else {
-            System.out.println("Insufficient funds.");
+        if (newBalance < minimumBalance) {
+            System.out.println("Transfer denied. Minimum balance of $"
+                    + minimumBalance + " must be maintained.");
+            return;
         }
+
+        adjustBalance(-amount);
+        targetAccount.adjustBalance(amount);
+        withdrawalsThisMonth++;
+
+        System.out.println(
+                "Transferred $" + amount +
+                        " to account #" +
+                        targetAccount.getAccountNumber());
     }
   @Override
   public void makeDeposit(double amount){
     adjustBalance(amount);
   }
-@Override
-    public void makeWithdrawal(double amount){
-    adjustBalance(-amount);
-    withdrawalLimits++;
-}
+    @Override
+    public void makeWithdrawal(double amount) {
+
+        if (amount <= 0) {
+            System.out.println("Invalid amount.");
+            return;
+        }
+
+        double newBalance = getBalance() - amount;
+
+        if (newBalance < minimumBalance) {
+            System.out.println("Withdrawal denied. Minimum balance of $"
+                    + minimumBalance + " must be maintained.");
+            return;
+        }
+
+        adjustBalance(-amount);
+        withdrawalsThisMonth++;
+    }
 public void monthlyUpdate(){
     double monthlyInterest = getBalance() * (interestRate/12);
 adjustBalance(monthlyInterest);

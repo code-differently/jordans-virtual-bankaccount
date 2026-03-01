@@ -9,10 +9,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Bank bank = new Bank();
 
-        bank.addAccount(new CheckingAccount("Jordan", 1, 500, 5));
-        bank.addAccount(new SavingsAccount("Jordan", 2, 1000, 0.03));
-        bank.addAccount(new HighYieldSavings("Jordan", 3,
-                300, 200, 0.05, 0, 6, 25));
+        bank.addAccount(new CheckingAccount("Jordan", 1032107, 700, 5));
+        bank.addAccount(new SavingsAccount("Jordan", 1032101, 5000, 0.03));
+        bank.addAccount(new HighYieldSavings("Jordan", 1032109,
+                12000, 10000, 0.05, 0, 1, 25));
 
         boolean running = true;
 
@@ -20,11 +20,12 @@ public class Main {
 
             System.out.println("\n--- Jordan's Virtual Bank ---");
             System.out.println("1. View Accounts");
-            System.out.println("2. Transfer Funds");
-            System.out.println("3. Run Monthly Update");
-            System.out.println("4. Exit");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Transfer");
+            System.out.println("5. Run Monthly Update");
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
-
             int choice = scanner.nextInt();
 
             switch (choice) {
@@ -34,6 +35,26 @@ public class Main {
                     break;
 
                 case 2:
+                    System.out.print("Account #: ");
+                    int depAcc = scanner.nextInt();
+
+                    System.out.print("Amount: ");
+                    double depAmount = scanner.nextDouble();
+
+                    bank.deposit(depAcc, depAmount);
+                    break;
+
+                case 3:
+                    System.out.print("Account #: ");
+                    int withAcc = scanner.nextInt();
+
+                    System.out.print("Amount: ");
+                    double withAmount = scanner.nextDouble();
+
+                    bank.withdraw(withAcc, withAmount);
+                    break;
+
+                case 4:
                     System.out.print("From Account #: ");
                     int from = scanner.nextInt();
 
@@ -46,21 +67,23 @@ public class Main {
                     bank.transfer(from, to, amount);
                     break;
 
-                case 3:
+                case 5:
                     bank.runMonthlyUpdates();
                     System.out.println("Monthly updates complete.");
                     break;
 
-                case 4:
-                    running = false;
+                case 6:
                     System.out.println("Goodbye.");
+                    running = false;
                     break;
 
                 default:
                     System.out.println("Invalid option.");
             }
-        }
 
+
+        }
         scanner.close();
     }
+
 }

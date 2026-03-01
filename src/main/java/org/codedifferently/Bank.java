@@ -42,7 +42,29 @@ import java.util.ArrayList;
                 System.out.println("This account type cannot transfer funds.");
             }
         }
+        public void deposit(int accountNumber, double amount) {
 
+            BaseAccount account = findAccount(accountNumber);
+
+            if (account == null) {
+                System.out.println("Account not found.");
+                return;
+            }
+
+            account.makeDeposit(amount);
+            System.out.println("Deposit successful.");
+        }
+        public void withdraw(int accountNumber, double amount) {
+
+            BaseAccount account = findAccount(accountNumber);
+
+            if (account == null) {
+                System.out.println("Account not found.");
+                return;
+            }
+
+            account.makeWithdrawal(amount);
+        }
         private BaseAccount findAccount(int accountNumber) {
             for (BaseAccount account : accounts) {
                 if (account.getAccountNumber() == accountNumber) {
