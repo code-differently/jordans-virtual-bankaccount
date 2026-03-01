@@ -8,11 +8,12 @@ public class Main {
     public static void main(String[] args) {
       BankAccount checking = new CheckingAccount("Jordon", 002, 0);
       BankAccount savings = new SavingsAccount("Jordon", 003, 0, 1);
-   //   BankAccount credit = new CreditAccount("Jordon", 003, 0, 4, 1000);
+      BankAccount credit = new CreditAccount("Jordon", 004, 0, 4, 2000);
       ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
       accounts.add(checking);
       accounts.add(savings);
+      accounts.add(credit);
    //   accounts.add(savings);
   //    accounts.add(credit);
 
@@ -53,6 +54,17 @@ public class Main {
       savings.monthlyUpdate();
 
 
+
+      credit.monthlyUpdate();
+      credit.withdrawal(100);
+      credit.monthlyUpdate();
+      //due
+      credit.monthlyUpdate();
+      credit.monthlyUpdate();
+      credit.monthlyUpdate();
+
+      credit.deposit(100);
+      credit.monthlyUpdate();
 
 
       //  savings.monthlyUpdate();
