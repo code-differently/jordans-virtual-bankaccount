@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Main {
+  +main(args: String[]): void
+}
+
+
+abstract class BankAccount {
+  -owner: String
+  -accountNumber: int
+  -balance: double
+
+  +BankAccount(owner: String, accountNumber: int, startingBalance: double)
+
+  +getOwner(): String
+  +getAccountNumber(): int
+  +getBalance(): double
+
+  +deposit(amount: double): void
+  +withdraw(amount: double): boolean
+
+  {abstract} +monthlyUpdate(): void
+  +printSummary(): void
+
+  #setBalance(newBalance: double): void
+}
+
+
+class CheckingAccount {
+  -minimumBalance: double
+  -monthlyFee: double
+
+  +CheckingAccount(owner: String, accountNumber: int, startingBalance: double,
+                   minimumBalance: double, monthlyFee: double)
+
+  +monthlyUpdate(): void
+}
+
+
+class SavingsAccount {
+  -interestRate: double
+
+  +SavingsAccount(owner: String, accountNumber: int, startingBalance: double,
+                  interestRate: double)
+
+  +monthlyUpdate(): void
+}
+
+
+class InvestmentAccount {
+  -monthlyGrowthRate: double
+  -withdrawalPenaltyRate: double
+
+  +InvestmentAccount(owner: String, accountNumber: int, startingBalance: double,
+                     monthlyGrowthRate: double, withdrawalPenaltyRate: double)
+
+  +withdraw(amount: double): boolean
+  +monthlyUpdate(): void
+}
+
+
+BankAccount <|-- CheckingAccount
+BankAccount <|-- SavingsAccount
+BankAccount <|-- InvestmentAccount
+
+
+Main --> BankAccount : stores in ArrayList\ncalls deposit/withdraw/monthlyUpdate
+
+@enduml
