@@ -1,17 +1,33 @@
 package org.codedifferently;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.ArrayList;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+
+    public static void main(String[] args) {
+
+        ArrayList<BankAccount> accounts = new ArrayList<>();
+
+        accounts.add(new CheckingAccount("Bridgette", "CH457", 6000));
+        accounts.add(new SavingsAccount("Scott", "SAV082", 15000, 8));
+        accounts.add(new GrowthAccount("Ellis", "GRO983", 3000, 4));
+
+        System.out.println("--- BEFORE MONTHLY UPDATE ---");
+        for (BankAccount account : accounts) {
+            account.printSummary();
+        }
+
+        accounts.get(0).withdraw(4500);
+        accounts.get(1).deposit(20000);
+        accounts.get(2).withdraw(1050);
+
+        for (BankAccount account : accounts) {
+            account.monthlyUpdate();
+        }
+
+        System.out.println("\n--- AFTER MONTHLY UPDATE ---");
+        for (BankAccount acc : accounts) {
+            acc.printSummary();
         }
     }
 }
