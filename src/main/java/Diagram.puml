@@ -1,0 +1,56 @@
+@startuml
+Class Main
+
+Abstract Class BaseAccount{
+- owner : String
+- accountNumber : int
+- balance : double
++ getOwner() : String
++ getAccountNumber() : int
++ getBalance() : double
++ makeWithdrawal() : void
++ makeDeposit() : void
++ accountSummary() : void
++ monthlyUpdate() : void
+}
+
+Class CheckingAccount{
+- updateFee : double
+}
+
+Class SavingsAccount{
+- interest : double
+}
+
+Class HighYieldSavings{
+- minimumBalance : double
+- interestRate : double
+- withdrawalsThisMonth : int
+- withdrawalLimit : int
+//withdrawalLimit is 6
+- bonusInterest : double
+}
+
+Class SystemDisplay{
+
+}
+
+CheckingAccount --|> BaseAccount
+SavingsAccount --|> BaseAccount
+HighYieldSavings --|> BaseAccount
+BaseAccount -> Main
+SystemDisplay -> Main
+
+
+
+
+
+
+
+
+
+@enduml
+
+
+
+
