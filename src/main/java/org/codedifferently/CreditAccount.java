@@ -64,6 +64,7 @@ public class CreditAccount extends BankAccount {
     @Override
     public void monthlyUpdate() {
         System.out.println("\n---- Monthly Update ---");
+        System.out.println("Credit (" + accountNumber + ")");
         System.out.println("Statement balance (last month): $" + round2(statementBalance));
         System.out.println("Current balance (before interest): $" + round2(balance));
         System.out.println("Minimum payment due this cycle: $" + round2(minPaymentDue));
