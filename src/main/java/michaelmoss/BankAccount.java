@@ -1,16 +1,12 @@
 package michaelmoss;
 
 
-// ABSTRACTION:
-// This abstract class defines what ALL accounts have in common.
-// Subclasses must implement withdraw() and monthlyUpdate()
-// because each account behaves differently.
+// Abstraction: This class defines common behavior for all accounts.
+// Some behavior is abstract because different account types update differently.
 
 public abstract class BankAccount {
 
-    // ENCAPSULATION:
-    // Fields are private to protect data.
-    // They cannot be changed directly from outside the class.
+    // Encapsulation: fields are private so they cannot be modified directly.
     private String owner;
     private String accountNumber;
     private double balance;
@@ -21,6 +17,11 @@ public abstract class BankAccount {
         this.balance = balance;
     }
 
+    // Getters (controlled access)
+    public String getOwner() {
+        return owner;
+    }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -29,7 +30,7 @@ public abstract class BankAccount {
         return balance;
     }
 
-    // Protected so subclasses can safely modify balance
+    // Protected so subclasses can adjust balance safely
     protected void setBalance(double balance) {
         this.balance = balance;
     }
@@ -41,15 +42,19 @@ public abstract class BankAccount {
         }
     }
 
-    // ABSTRACT METHODS:
-    // Different account types handle these differently.
+    // Abstraction:
+    // Each account withdraws differently, so subclasses must implement this.
     public abstract void withdraw(double amount);
+
+    // Abstraction:
+    // Monthly updates differ (fees, interest, etc.)
     public abstract void monthlyUpdate();
 
+    // Shared method
     public void printSummary() {
-        System.out.printf("%s (%s) - Balance: $%.2f\n",
-                this.getClass().getSimpleName().replace("Account", ""),
-                accountNumber,
-                balance);
+        System.out.println("Owner: " + owner);
+        System.out.println("Account #: " + accountNumber);
+        System.out.println("Balance: $" + String.format("%.2f", balance));
+        System.out.println("---------------------------");
     }
 }

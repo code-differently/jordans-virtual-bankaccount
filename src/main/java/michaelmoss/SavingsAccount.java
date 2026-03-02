@@ -2,10 +2,10 @@ package michaelmoss;
 
 public class SavingsAccount extends BankAccount {
 
-    private static final double INTEREST_RATE = 0.015; // 1.5%
+    private double interestRate = 0.02; // 2% monthly
 
-    public SavingsAccount(String owner, String number, double balance) {
-        super(owner, number, balance);
+    public SavingsAccount(String owner, String accountNumber, double balance) {
+        super(owner, accountNumber, balance);
     }
 
     @Override
@@ -15,10 +15,10 @@ public class SavingsAccount extends BankAccount {
         }
     }
 
-    // Monthly interest added
+    // Apply interest
     @Override
     public void monthlyUpdate() {
-        double interest = getBalance() * INTEREST_RATE;
+        double interest = getBalance() * interestRate;
         setBalance(getBalance() + interest);
     }
 }

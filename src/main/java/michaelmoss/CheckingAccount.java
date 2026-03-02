@@ -1,16 +1,18 @@
 package michaelmoss;
 
 
-// INHERITANCE: CheckingAccount extends BankAccount
+// Inheritance: CheckingAccount reuses BankAccount fields and methods.
 
 public class CheckingAccount extends BankAccount {
 
-    private static final double MONTHLY_FEE = 8;
+    private double minimumBalance = 100;
+    private double lowBalanceFee = 10;
 
-    public CheckingAccount(String owner, String number, double balance) {
-        super(owner, number, balance);
+    public CheckingAccount(String owner, String accountNumber, double balance) {
+        super(owner, accountNumber, balance);
     }
 
+    // Cannot withdraw more than balance
     @Override
     public void withdraw(double amount) {
         if (amount > 0 && amount <= getBalance()) {
@@ -18,9 +20,11 @@ public class CheckingAccount extends BankAccount {
         }
     }
 
-    // Monthly service fee
+    // Monthly fee if balance is too low
     @Override
     public void monthlyUpdate() {
-        setBalance(getBalance() - MONTHLY_FEE);
+        if (getBalance() < minimumBalance) {
+            setBalance(getBalance() - lowBalanceFee);
+        }
     }
 }

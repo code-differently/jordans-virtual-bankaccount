@@ -1,35 +1,28 @@
 package michaelmoss;
 
-// Third account type: behaves differently (represents debt)
-
 public class YourThirdAccountType extends BankAccount {
 
-    private static final double INTEREST_RATE = 0.025; // 2.5%
+    private double creditLimit = -1000;
+    private double interestRate = 0.03; // 3% monthly on debt
 
-    public YourThirdAccountType(String owner, String number, double balance) {
-        super(owner, number, balance);
+    public YourThirdAccountType(String owner, String accountNumber, double balance) {
+        super(owner, accountNumber, balance);
     }
 
-    // Spending increases debt
+    // Withdraw = spending (can go negative up to limit)
     @Override
     public void withdraw(double amount) {
-        if (amount > 0) {
-            setBalance(getBalance() + amount);
-        }
-    }
-
-    // Payment reduces debt
-    @Override
-    public void deposit(double amount) {
-        if (amount > 0) {
+        if (amount > 0 && (getBalance() - amount) >= creditLimit) {
             setBalance(getBalance() - amount);
         }
     }
 
-    // Interest on debt
+    // Monthly interest if balance is negative
     @Override
     public void monthlyUpdate() {
-        double interest = getBalance() * INTEREST_RATE;
-        setBalance(getBalance() + interest);
+        if (getBalance() < 0) {
+            double interest = getBalance() * interestRate;
+            setBalance(getBalance() + interest);
+        }
     }
 }
