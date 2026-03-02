@@ -1,6 +1,10 @@
 package org.codedifferently;
 
+//abstraction, user/program does not have opportunity to directly interact with bank account, instead
+//it is handled through specific Checking, Savings, Credit accounts
 public abstract class BankAccount {
+
+    //encapsulation, protected doubles restrict access only to children and classes in same package
     protected String owner;
     protected int accountNumber;
     protected double balance;

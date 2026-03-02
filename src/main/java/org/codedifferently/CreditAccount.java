@@ -2,6 +2,7 @@ package org.codedifferently;
 
 public class CreditAccount extends BankAccount {
 
+    //encapsulation, private fields restricted to use withing this class. Only accessible outside via getters
     private final double interestRate;
     private final double maxBalance;
 
@@ -23,6 +24,8 @@ public class CreditAccount extends BankAccount {
         this.paymentsThisCycle = 0.0;
     }
 
+    //polymorphism, same method as BankAccount but different behaviors
+
     @Override
     public void deposit(double amount) {
         if (amount <= 0) {
@@ -39,6 +42,8 @@ public class CreditAccount extends BankAccount {
         double applied = before - balance;
         paymentsThisCycle += applied;
     }
+
+    //polymorphism, same method as BankAccount but different behaviors
 
     @Override
     public void withdrawal(double amount) {

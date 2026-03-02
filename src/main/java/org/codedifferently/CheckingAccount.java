@@ -1,6 +1,9 @@
 package org.codedifferently;
 
+//inheritance, class inherits fields and methods from bank account
 public class CheckingAccount extends BankAccount {
+
+    //encapsulation, protected doubles restrict access only to children and classes in same package
     protected double previousBalance;
 
     public CheckingAccount(String owner, int accountNumber, double balance) {
@@ -8,6 +11,7 @@ public class CheckingAccount extends BankAccount {
         this.previousBalance = balance;
     }
 
+    //polymorphism, same method as BankAccount but different behaviors
     @Override
     public void monthlyUpdate(){
 
@@ -27,6 +31,7 @@ public class CheckingAccount extends BankAccount {
 
     }
 
+    //polymorphism, same method as BankAccount but different behaviors
     //monthly update, print out a summary of what the account is doing after it's already done
     @Override
     public void printSummary(){

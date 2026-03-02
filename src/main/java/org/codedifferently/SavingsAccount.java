@@ -1,6 +1,8 @@
 package org.codedifferently;
 
 public class SavingsAccount extends BankAccount {
+
+    //encapsulation, protected doubles restrict access only to children and classes in same package
     protected double interestRate;
     protected double previousBalance;
 
@@ -10,6 +12,8 @@ public class SavingsAccount extends BankAccount {
         this.interestRate = interestRate;
         this.previousBalance = balance;
     }
+
+    //polymorphism, same method as BankAccount but different behaviors
 
     @Override
     public void monthlyUpdate() {
@@ -35,6 +39,8 @@ public class SavingsAccount extends BankAccount {
 
 
     }
+
+    //polymorphism, same method as BankAccount but different behaviors
 
     @Override
     public void printSummary(){
