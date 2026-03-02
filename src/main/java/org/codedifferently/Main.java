@@ -6,9 +6,9 @@ import java.util.ArrayList;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-      BankAccount checking = new CheckingAccount("Jordon", 002, 0);
-      BankAccount savings = new SavingsAccount("Jordon", 003, 0, 1);
-      BankAccount credit = new CreditAccount("Jordon", 004, 0, 4, 2000);
+      BankAccount checking = new CheckingAccount("Jordon", 2, 0);
+      BankAccount savings = new SavingsAccount("Jordon", 3, 0, 1);
+      BankAccount credit = new CreditAccount("Jordon", 4, 0, 4, 2000);
       ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
       accounts.add(checking);

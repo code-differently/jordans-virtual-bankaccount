@@ -18,7 +18,7 @@ public class SavingsAccount extends BankAccount {
     @Override
     public void monthlyUpdate() {
 
-        System.out.println("Last Month: ");
+        System.out.println("\nLast Month: ");
         printPreviousSummary();
 
         //for this implementation, I accrue the interest on a monthly basis based on the balance from last month

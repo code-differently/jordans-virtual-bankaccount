@@ -15,7 +15,7 @@ public class CheckingAccount extends BankAccount {
     @Override
     public void monthlyUpdate(){
 
-        System.out.println("Last Month: ");
+        System.out.println("\nLast Month: ");
         printPreviousSummary();
 
         super.monthlyUpdate();
