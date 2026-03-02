@@ -26,7 +26,9 @@ public class CheckingAccount extends BankAccount {
         }
 
         //add prints
-        printPreviousSummary();
+        //printPreviousSummary();
+      //  printSummary();
+        printSummary();
         previousBalance = balance;
 
     }
