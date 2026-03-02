@@ -8,32 +8,27 @@ public class Main {
 
         List<BankAccount> accounts = new ArrayList<>();
 
-        accounts.add(new CheckingAccount("Jordan", "001", 5000));
-        accounts.add(new SavingsAccount("Jordan", "002", 10000));
-        accounts.add(new MoneyMarketAccount("Jordan", "003", 20000));
+        accounts.add(new CheckingAccount("Jordan", "1234", 500));
+        accounts.add(new SavingsAccount("Jordan", "9876", 100));
+        accounts.add(new MoneyMarketAccount("Jordan", "4567", 2000));
 
-        System.out.println("**** BEFORE MONTHLY UPDATE ***");
-        for (BankAccount account : accounts) {
-            account.printSummary();
-        }
-
-        System.out.println("\n--- BEFORE TRANSACTIONS ---");
+        System.out.println("**** BEFORE MONTHLY UPDATE ****");
         for (BankAccount account : accounts) {
             account.printSummary();
         }
 
 
         // complete transactions
-        accounts.get(0).withdraw(235);
-        accounts.get(0).withdraw(1550);
+        accounts.get(0).withdraw(200);
+        accounts.get(0).withdraw(250);
         accounts.get(1).deposit(2000);
         accounts.get(1).deposit(1000);
-        accounts.get(2).withdraw(570);
-        accounts.get(2).withdraw(1000);
+        accounts.get(2).withdraw(500);
+        accounts.get(2).withdraw(500);
         accounts.get(2).withdraw(200);
         accounts.get(2).withdraw(300);// this transaction exceeds account limit
 
-        System.out.println("\n--- AFTER TRANSACTIONS ---");
+        System.out.println("\n**** AFTER TRANSACTIONS ****");
         for (BankAccount account : accounts) {
             account.printSummary();
         }

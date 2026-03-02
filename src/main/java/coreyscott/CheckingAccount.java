@@ -15,6 +15,7 @@ public class CheckingAccount extends BankAccount {
     public void monthlyUpdate() {
         if (balance < MIN_BALANCE) {
             balance -= MONTHLY_FEE;
+            System.out.println("Checking Account Fee applied");
         }
 
     }

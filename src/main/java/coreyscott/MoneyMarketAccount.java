@@ -2,7 +2,7 @@ package coreyscott;
 
     public class MoneyMarketAccount extends BankAccount {
 
-        private static final double INTEREST_RATE = 0.04; // 4%
+        private static final double INTEREST_RATE = 0.00; // 4%
         private static final int WITHDRAWAL_LIMIT = 3;
         private static final double EXCESS_WITHDRAWAL_FEE = 15;
         private static final double MIN_BALANCE_FOR_INTEREST = 1000;
