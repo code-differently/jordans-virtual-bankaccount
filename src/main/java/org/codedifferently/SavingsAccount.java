@@ -9,6 +9,10 @@ public class SavingsAccount extends BankAccount{
         super(person, acctNumber, acctBalance);
     }
 
+    public SavingsAccount() {
+
+    }
+
     @Override
     public void withdrawFunds(int acctNum, String acctType) {
         super.withdrawFunds(acctNum, acctType);

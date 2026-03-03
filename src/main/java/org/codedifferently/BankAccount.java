@@ -13,7 +13,7 @@ public abstract class BankAccount {
 
     public BankAccount() {
     }
-    public BankAccount(Customer person, int acctNumber) {
+    public BankAccount(Customer person) {
         this.customerFirstName = Customer.firstName;
         this.customerLastName = Customer.lastName;
     }
@@ -23,6 +23,9 @@ public abstract class BankAccount {
         this.customerLastName= Customer.lastName;
         this.acctNumber= person.getAcctNumber();
         this.acctBalance=acctBalance;
+    }
+
+    public BankAccount(Customer person, int acctNumber) {
     }
 
     public String getAcctType() {

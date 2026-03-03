@@ -16,6 +16,7 @@ public class Customer {
     BankAccount bankAccount = new BankAccount() {
     };
     CheckingAccount chkAcct = new CheckingAccount();
+    SavingsAccount savAcct = new SavingsAccount();
     BrokerageAccount brkAcct= new BrokerageAccount();
 
     ArrayList<BankAccount> bankAccounts = new ArrayList<>();
@@ -71,33 +72,76 @@ public class Customer {
         return new Customer(firstName, lastName);
     }
 
-    public void printAccountSummaries() {
+    public void printAccountSummaries(Customer customer) {
         System.out.println("=====" + getFirstName() + " " + getLastName() + "'s active accounts." + "=====");
-        for (int i = 0; i < Customer.this.bankAccounts.size(); i++) {
-            System.out.println("Account number: " + this.bankAccounts.get(i).getAcctNumber());
-            System.out.println("Account type: " + this.bankAccounts.get(i).getAcctType());
-            System.out.println("Balance: $" + this.bankAccounts.get(i).getAcctBalance());
+        //for (int i = 0; i < Customer.this.bankAccounts.size(); i++) {
+            System.out.println("Account number: " + customer.getAcctNumber());
+            System.out.println("Account type: " + customer.acctTypes[0]);
+            System.out.println("Balance: $" + customer.chkAcct.getAcctBalance());
             System.out.println("========================================");
+        System.out.println("Account number: " + customer.getAcctNumber());
+        System.out.println("Account type: " + customer.acctTypes[1]);
+        System.out.println("Balance: $" + customer.savAcct.getAcctBalance());
+        System.out.println("========================================");
+        System.out.println("Account number: " + customer.getAcctNumber());
+        System.out.println("Account type: " + customer.acctTypes[2]);
+        System.out.println("Balance: $" + customer.brkAcct.getAcctBalance());
+        System.out.println("========================================");
+
             System.out.println(" ");
+        //}
+    }
+
+    public void depositFunds(Customer customer, String acctType) {
+        System.out.println("How much money are you depositing?");
+        double deposit = sc.nextDouble();
+        switch (acctType) {
+            case "Checking Account" -> {
+                double balance = customer.chkAcct.getAcctBalance() + deposit;
+                customer.chkAcct.setAcctBalance(balance);
+                System.out.println("Your Checking Account balance is now:"+ balance);
+            }
+        case "Savings Account" -> {
+            double balance = customer.savAcct.getAcctBalance() + deposit;
+            customer.savAcct.setAcctBalance(balance);
+            System.out.println("Your Savings Account balance is now:"+ balance);
+        }
+            case "Brokerage Account" -> {
+                    double balance = customer.brkAcct.getAcctBalance() + deposit;
+                    customer.brkAcct.setAcctBalance(balance);
+                System.out.println("Your Brokerage Account balance is now:"+ balance);
+            }
         }
     }
 
-    public void depositFunds(int acctNumber, String acctType) {
-        System.out.println("How much money are you depositing?");
-        double deposit = sc.nextDouble();
-        this.acctBalance += deposit;
-        bankAccount.setAcctBalance(deposit);
-        System.out.println("Your deposit has been processed!" + "\n Your new "+ acctType+ "balance is: " + acctBalance);
-
-    }
-
-    public void withdrawFunds(int acctNumber, String acctType) {
-        System.out.println("How much money are you depositing?");
+    public void withdrawFunds(Customer customer, String acctType) {
+        System.out.println("How much money are you withdrawing?");
         double withdraw = sc.nextDouble();
-        if (this.acctBalance < withdraw) {
-            System.out.println("Insufficient funds. Please try again");
-        } else {
-            acctBalance -= withdraw;
+        switch (acctType) {
+            case "Checking Account" -> {
+                if (customer.chkAcct.getAcctBalance() < withdraw) {
+                    System.out.println("Insufficient funds. Please try again");
+                } else {
+                    double balance = customer.savAcct.getAcctBalance() - withdraw;
+                    customer.chkAcct.setAcctBalance(balance);
+                }
+            }
+            case "Savings Account" -> {
+                if (customer.savAcct.getAcctBalance() < withdraw) {
+                    System.out.println("Insufficient funds. Please try again");
+                } else {
+                    double balance = customer.savAcct.getAcctBalance() - withdraw;
+                    customer.savAcct.setAcctBalance(balance);
+                }
+            }
+            case "Brokerage Account" -> {
+                if (customer.brkAcct.getAcctBalance() < withdraw) {
+                    System.out.println("Insufficient funds. Please try again");
+                } else {
+                    double balance = customer.brkAcct.getAcctBalance() - withdraw;
+                    customer.brkAcct.setAcctBalance(balance);
+                }
+            }
         }
     }
 

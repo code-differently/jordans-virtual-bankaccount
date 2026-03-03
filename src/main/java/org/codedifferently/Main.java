@@ -16,7 +16,7 @@ public class Main {
         SavingsAccount savAcct = new SavingsAccount(new1, new1.getAcctNumber(), 0);
         BrokerageAccount broAcct = new BrokerageAccount(new1, new1.getAcctNumber(), 0);
 
-        //ArrayList<BankAccount> bankAccounts = new ArrayList<>();
+        ArrayList<BankAccount> bankAccounts = new ArrayList<>();
         new1.bankAccounts.add(chkAcct);
         new1.bankAccounts.add(savAcct);
         new1.bankAccounts.add(broAcct);
@@ -33,15 +33,15 @@ public class Main {
             int menuSelection = sc.nextInt();
             switch (menuSelection) {
                 case 1:
-                    new1.printAccountSummaries();
+                    new1.printAccountSummaries(new1);
                     continue;
                 case 2:
                     String depositAcctType = new1.selectAccount();
-                    new1.depositFunds(new1.getAcctNumber(), depositAcctType);
+                    new1.depositFunds(new1,depositAcctType);
                     break;
                 case 3:
                     String withdrawAcctType = new1.selectAccount();
-                    new1.withdrawFunds(new1.getAcctNumber(), withdrawAcctType);
+                    new1.withdrawFunds(new1,withdrawAcctType);
                     break;
                 case 5:
                     bankOpen=false;
