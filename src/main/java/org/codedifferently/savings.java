@@ -1,6 +1,6 @@
 package org.codedifferently;
 
-public class SavingsAccount extends Account {
+abstract class SavingsAccount extends BankAccount {
 
     private final double interestRate;
 
@@ -20,5 +20,10 @@ public class SavingsAccount extends Account {
         } else {
             System.out.println("Insufficient funds.");
         }
+    }
+
+    @Override
+    public void monthlyUpdate() {
+
     }
 }

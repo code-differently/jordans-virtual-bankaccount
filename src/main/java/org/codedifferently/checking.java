@@ -1,6 +1,6 @@
 package org.codedifferently;
 
-public class Checking extends BaseAccount {
+class Checking extends BankAccount {
     private static final double LOW_BALANCE_FEE = 10.00;
     private static final double LOW_BALANCE_THRESHOLD = 100.00;
 
@@ -13,7 +13,7 @@ public class Checking extends BaseAccount {
         if (amount > balance) {
             System.out.println("Cannot withdraw more than the balance.");
         } else {
-            super.withdraw(amount);
+
         }
     }
 
