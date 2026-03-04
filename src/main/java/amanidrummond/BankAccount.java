@@ -25,6 +25,7 @@ public abstract class BankAccount {
     public String getOwner() {
         return owner;
     }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -37,12 +38,14 @@ public abstract class BankAccount {
         this.balance = newBalance;
     }
 
-    public void deposit(double amount) {
+    public boolean deposit(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Deposit must be greater than 0.");
+            return false;
         }
         setBalance(getBalance() + amount);
+        return true;
     }
+
 
     public abstract boolean withdraw(double amount);
 
